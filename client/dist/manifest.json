@@ -1,0 +1,14 @@
+{
+  "src/main.css": {
+    "file": "assets/main-2c807474.css",
+    "src": "src/main.css"
+  },
+  "src/main.js": {
+    "css": [
+      "assets/main-2c807474.css"
+    ],
+    "file": "assets/main-ddf7f4e8.js",
+    "isEntry": true,
+    "src": "src/main.js"
+  }
+}
