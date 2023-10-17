@@ -16,6 +16,7 @@
             <input class="input" v-model="secadorCabelo" type="text" name="secadorCabelo"
                 placeholder="Enter secadorCabelo" />
             <input class="input" v-model="frigobar" type="text" name="frigobar" placeholder="Enter frigobar" />
+            <input class="input" v-model="imagem" type="text" name="imagem" placeholder="Enter imagem" />
             <button type="submit" class="submit-btn">Add Quarto</button>
         </form>
 
@@ -35,22 +36,21 @@
                         <span class="quarto-banheira">{{ quarto.banheira }}</span>
                         <span class="quarto-secadorCabelo">{{ quarto.secadorCabelo }}</span>
                         <span class="quarto-frigobar">{{ quarto.frigobar }}</span>
+                        <span class="quarto-imagem">{{ quarto.imagem }}</span>
                     </div>
 
                     <div class="update-form" id="updateForm">
                         <input type="text" name="updateNumero" id="updateQuarto" v-model="updateNumero" /><br />
                         <input type="text" name="updateMaxPessoas" id="updateQuarto" v-model="updateMaxPessoas" /><br />
                         <input type="text" name="updateCamasCasal" id="updateQuarto" v-model="updateCamasCasal" /><br />
-                        <input type="text" name="updateCamasSolteiro" id="updateQuarto"
-                            v-model="updateCamasSolteiro" /><br />
+                        <input type="text" name="updateCamasSolteiro" id="updateQuarto" v-model="updateCamasSolteiro" /><br />
                         <input type="text" name="updateTamanho" id="updateQuarto" v-model="updateTamanho" /><br />
-                        <input type="text" name="updateArCondicionado" id="updateQuarto"
-                            v-model="updateArCondicionado" /><br />
+                        <input type="text" name="updateArCondicionado" id="updateQuarto" v-model="updateArCondicionado" /><br />
                         <input type="text" name="updateWifi" id="updateQuarto" v-model="updateWifi" /><br />
                         <input type="text" name="updateBanheira" id="updateQuarto" v-model="updateBanheira" /><br />
-                        <input type="text" name="updateSecadorCabelo" id="updateQuarto"
-                            v-model="updateSecadorCabelo" /><br />
+                        <input type="text" name="updateSecadorCabelo" id="updateQuarto" v-model="updateSecadorCabelo" /><br />
                         <input type="text" name="updateFrigobar" id="updateQuarto" v-model="updateFrigobar" /><br />
+                        <input type="text" name="updateImagem" id="updateQuarto" v-model="updateImagem" /><br />
                     </div>
 
                     <div class="todo-btns">
@@ -95,6 +95,7 @@ export default {
             updateBanheira: "",
             updateSecadorCabelo: "",
             updateFrigobar: "",
+            updateImagem: "",
         };
     },
     mounted() {
@@ -118,6 +119,7 @@ export default {
                 banheira: this.banheira,
                 secadorCabelo: this.secadorCabelo,
                 frigobar: this.frigobar,
+                imagem: this.imagem,
             });
             this.numero = "";
             this.maxPessoas = "";
@@ -129,6 +131,7 @@ export default {
             this.banheira = "";
             this.secadorCabelo = "";
             this.frigobar = "";
+            this.imagem = "";
         },
 
         async delQuarto(id) {
@@ -152,6 +155,7 @@ export default {
                         this.updateBanheira = quarto.banheira;
                         this.updateSecadorCabelo = quarto.secadorCabelo;
                         this.updateFrigobar = quarto.frigobar;
+                        this.updateImagem = quarto.imagem;
                         event.target.innerHTML = "Save";
                     } else {
                         const res = await axios.put(`api/quartoList/${id}`, {
@@ -165,6 +169,7 @@ export default {
                             banheira: this.updateBanheira,
                             secadorCabelo: this.updateSecadorCabelo,
                             frigobar: this.updateFrigobar,
+                            imagem: this.updateImagem,
                         });
                         event.target.innerHTML = "Edit";
                         el.classList.remove("active");
@@ -178,6 +183,7 @@ export default {
                         this.updateBanheira = "";
                         this.updateSecadorCabelo = "";
                         this.updateFrigobar = "";
+                        this.updateImagem = "";
                     }
                 }
             });

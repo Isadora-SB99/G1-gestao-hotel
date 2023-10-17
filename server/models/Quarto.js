@@ -44,6 +44,10 @@ const QuartoSchema = new Schema({
     type: Boolean,
     required: false,
   },
+  imagem: {
+    type: String,
+    required: false,
+  },
 });
 
 
