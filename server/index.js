@@ -11,6 +11,12 @@ import QuartoListRoutes from "./routes/api/QuartoList.js";
 import ClienteListRoutes from "./routes/api/ClienteList.js";
 import FuncListRoutes from "./routes/api/FuncList.js";
 import ReservaListRoutes from "./routes/api/ReservaList.js";
+
+import CheckinRoutes from "./routes/api/CheckinList.js";
+import CheckoutRoutes from "./routes/api/CheckoutList.js";
+import InicialRoutes from "./routes/api/InicialList.js";
+import EfetuacaoRoutes from "./routes/api/EfetuacaoList.js";
+
 import homeRouter from "./routes/homeRouter.js";
 import assetsRouter from "./routes/assestsRouter.js";
 
@@ -47,6 +53,11 @@ app.use("/api/quartoList", QuartoListRoutes);
 app.use("/api/clienteList", ClienteListRoutes);
 app.use("/api/funcList", FuncListRoutes);
 app.use("/api/reservaList", ReservaListRoutes);
+
+app.use("/api/checkinList", CheckinRoutes);
+app.use("/api/checkoutList", CheckoutRoutes);
+app.use("/api/inicialList", InicialRoutes);
+app.use("/api/efetuacaoList", EfetuacaoRoutes);
 app.use(homeRouter);
 
 app.listen(process.env.PORT, () =>

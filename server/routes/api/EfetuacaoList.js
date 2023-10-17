@@ -2,9 +2,9 @@
 import { Router } from "express";
 import Efetuacao from "../../models/Efetuacao.js";
 
-const Router = Router();
+const EfetuacaoRouter = Router();
 
-Efetuacao.route("/efetuacao")
+EfetuacaoRouter.route("/efetuacao")
 
   // Get all todos in the database
   .get(async (_req, res) => {
