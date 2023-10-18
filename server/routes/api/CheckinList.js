@@ -1,6 +1,6 @@
 //checkinList.js
 import { Router } from "express";
-import Cadastro from "../../models/Cadastro.js";
+import Cliente from "../../models/Cliente.js";
 import Reserva from "../../models/Reserva.js";
 
 const CheckinRouter = Router();
@@ -10,9 +10,9 @@ CheckinRouter.route("/checkin")
   // Get all todos in the database
   .get(async (_req, res) => {
     try {
-      const cadastroList = await Cadastro.find();
-      if (!cadastroList) throw new Error("No Cadastro List found");
-      res.status(200).json(cadastroList);
+      const clienteList = await Cliente.find();
+      if (!clienteList) throw new Error("No Cliente List found");
+      res.status(200).json(clienteList);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -20,11 +20,11 @@ CheckinRouter.route("/checkin")
 
   //Post request creates a new todo in the database
   .post(async (req, res) => {
-    const newCadastro = new Cadastro(req.body); // create a new instance of the Cadastro model
+    const newCliente = new Cliente(req.body); // create a new instance of the Cliente model
     try {
-      const cadastro = await newCadastro.save(); // Save created todo
-      if (!cadastro) throw new Error("Something went wrong saving the Cadastro");
-      res.status(200).json(cadastro);
+      const cliente = await newCliente.save(); // Save created todo
+      if (!cliente) throw new Error("Something went wrong saving the Cliente");
+      res.status(200).json(cliente);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
